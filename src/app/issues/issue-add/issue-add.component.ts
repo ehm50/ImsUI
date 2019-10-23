@@ -30,7 +30,7 @@ export class IssueAddComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.usersService.getAll().subscribe(res => {
+    this.usersService.getAll().subscribe(res => {
       this.users = res;
     })
   }
@@ -43,9 +43,9 @@ export class IssueAddComponent implements OnInit {
     console.log(this.issueForm.value);
 
     this.issuesService.add(this.issueForm.value).subscribe(res => {
-      this.router.navigate(['issues']);
-      // this.reset();
-    }); 
+     // this.router.navigate(['issues']);
+      this.reset();
+    });
 
-  } 
+  }
 }

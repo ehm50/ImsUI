@@ -15,9 +15,8 @@
           Description is required
         </span>
       </div>
-
       <div class="form-group" *ngIf="users">
-        <select [compareWith]="compareUser" formControlName="assignedTo" id="assignedTo">
+        <select formControlName="assignedTo" id="assignedTo">
           <option *ngFor="let assignedTo of users" [ngValue]="assignedTo">
             {{assignedTo.name}}
           </option>
