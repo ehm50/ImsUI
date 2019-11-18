@@ -1,17 +1,24 @@
-@import "../../../styles-variables";
+@import "../../../styles-variables.scss";
 
 @media all {
-    .myClass ul{
-        list-style: none;
-        padding-left: 0;
-    }
+  .myClass ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }
+
 @media (min-width: map-get($grid-breakpoints, lg)) {
-    .myClass ul{
-        display: flex;
-        flex-direction: row;
-    }
-    .myClass li{
-       margin: 5px;
-    }
+  .myClass ul {
+    display: flex;
+    flex-direction: row;
+  }
+  .myClass li {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .myClass li {
+    margin-bottom: 15px;
+  }
 }

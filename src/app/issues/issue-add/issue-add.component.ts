@@ -41,10 +41,9 @@ export class IssueAddComponent implements OnInit {
 
   onSave() {
     console.log(this.issueForm.value);
-
     this.issuesService.add(this.issueForm.value).subscribe(res => {
-     // this.router.navigate(['issues']);
-      this.reset();
+      this.router.navigate(['issues']);
+      //this.reset();
     });
 
   }

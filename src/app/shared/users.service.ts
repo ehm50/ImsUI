@@ -15,6 +15,12 @@ export class UsersService {
     public get(id: number): Observable<User> {
         return this.http.get<User>(`http://localhost:8080/ims-users/resources/users/${id}`);
     }
-    
+
+    public add(user: User): Observable<any> {
+        return this.http.post('http://localhost:8080/ims-users/resources/users', user,
+            { responseType: 'text' }
+        );
+    }
+
 
 }

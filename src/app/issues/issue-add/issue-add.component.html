@@ -1,47 +1,40 @@
 <form [formGroup]="issueForm" (ngSubmit)="onSave()">
-    <div class="form-group">
-        <input type="text" class="form-control" id="label" placeholder="Label" formControlName="label">
-        <span *ngIf="issueForm.get('label').touched && issueForm.get('label').hasError('required')">
-            Label is required
-        </span>
-    </div>
-
-    <div class="form-group">
-        <input type="text" class="form-control" id="description" placeholder="Description"
-            formControlName="description">
-        <span *ngIf="issueForm.get('description').touched && issueForm.get('description').hasError('required')">
-            Description is required
-        </span>
-    </div>
-
-    <div class="form-group" *ngIf="users">
-        <select formControlName="assignedTo" id="assignedTo">
-            <option [ngValue]="null" disabled>Choose Assignee</option>
-            <option *ngFor="let assignedTo of users" [ngValue]="assignedTo">
-                {{assignedTo.name}}
-            </option>
-        </select>
-        <span *ngIf="issueForm.get('assignedTo').touched && issueForm.get('assignedTo').hasError('required')">
-            Assignee is missing
-        </span>
-    </div>
- <div class="form-group myClass">
-        <ul>
-          <li>
-            <button type="button" class="btn btn-outline-success btn-block m-1 mx-auto" [routerLink]="['/issues']">
-              <i class="fa fa-arrow-left"></i>
-            </button>
-          </li>
-          <li>
-            <button type="submit" class="btn btn-outline-success btn-block m-1 mx-auto" [disabled]="!issueForm.valid">
-              <i class="fa fa-save"></i>
-            </button>
-          </li>
-        </ul>
-      </div>
+  <div class="form-group">
+    <input type="text" class="form-control" id="label" placeholder="Label" formControlName="label">
+    <span *ngIf="issueForm.get('label').touched && issueForm.get('label').hasError('required')">
+      Label is required
+    </span>
+  </div>
+  <div class="form-group">
+    <textarea name="text" class="form-control" rows="5" id="description" placeholder="Description"
+      formControlName="description"></textarea>
+    <span *ngIf="issueForm.get('description').touched && issueForm.get('description').hasError('required')">
+      Description is required
+    </span>
+  </div>
+  <div class="form-group" *ngIf="users">
+    <select class="form-control" formControlName="assignedTo" id="assignedTo">
+      <option [ngValue]="null" disabled>Choose Assignee</option>
+      <option *ngFor="let assignedTo of users" [ngValue]="assignedTo">
+        {{assignedTo.credential.username}}
+      </option>
+    </select>
+    <span *ngIf="issueForm.get('assignedTo').touched && issueForm.get('assignedTo').hasError('required')">
+      Assignee is missing
+    </span>
+  </div>
+  <div class="form-group myClass">
+    <ul>
+      <li>
+        <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/issues']">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+      </li>
+      <li>
+        <button type="submit" class="btn btn-outline-success btn-block" [disabled]="!issueForm.valid">
+          <i class="fa fa-save"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
 </form>
-
-<div style="margin-top: 10px;">
-    <pre>Form Valid? {{issueForm.valid | json}} <br/>{{issueForm.value | json}}
-      <br/>{{issueForm.status | json}}</pre>
-</div>

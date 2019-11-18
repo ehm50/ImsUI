@@ -1,4 +1,4 @@
-@import "../../../styles-variables.scss";
+@import "../../styles-variables";
 
 @media all {
   .myClass ul {
@@ -11,14 +11,5 @@
   .myClass ul {
     display: flex;
     flex-direction: row;
-  }
-  .myClass li {
-    margin-right: 15px;
-  }
-}
-
-@media (max-width: map-get($grid-breakpoints, lg)) {
-  .myClass li {
-    margin-bottom: 15px;
   }
 }
