@@ -84,12 +84,12 @@ export class IssueEditComponent implements OnInit {
     newComment.text = this.comment;
     console.log('comment', JSON.stringify(this.comment));
     this.issuesService.addComment(this.issue.id, newComment).subscribe(res => {
-      console.log('saved comment');
       this.issue.comments.push(
         {
           byUserName: this.authService.currentUser.name,
           comment: newComment
         });
+        f.reset();
     });
   }
 

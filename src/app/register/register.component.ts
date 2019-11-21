@@ -29,9 +29,8 @@ export class RegisterComponent implements OnInit {
   onSave() {
     console.log(this.registerForm.value);
     this.usersService.add(this.registerForm.value).subscribe(res => {
-      //this.router.navigate(['issues']);
-      //this.reset();
-    }); 
+      this.router.navigate(['login']);
+    });
 
   }
 

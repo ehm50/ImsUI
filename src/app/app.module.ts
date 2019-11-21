@@ -11,10 +11,12 @@ import { IssuesModule } from './issues/issues.module';
 import { IssuesService } from './shared/issues.service';
 import { UsersService } from './shared/users.service';
 import { AuthService } from './shared/auth.service';
+import { WebsocketService } from './shared/websocket.service';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuardService } from './shared/auth.guard.service';
+import { ChatComponent } from './chat/chat.component';
 
 export function tokenGetterFn() {
   return localStorage.getItem('token');
@@ -26,7 +28,8 @@ export function tokenGetterFn() {
     HomeComponent,
     FeedComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ export function tokenGetterFn() {
       }
     })
   ],
-  providers: [IssuesService, UsersService, AuthService, AuthGuardService],
+  providers: [IssuesService, UsersService, WebsocketService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
